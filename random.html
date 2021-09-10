@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
 
+      function randomizeTime (min, max) {
+        let seconds = Math.floor(Math.random() * (max - min) + min)
+        console.log(seconds)
+        return seconds
+      }
 
-function randomizeTimeOut(min,max) { 
-    let seconds = Math.floor(Math.random() * (max - min) + min); 
-    console.log(seconds); 
-return seconds;
-}
+      function randomizeElements () {
+        const valeurs = ['do', 'ré', 'mi', 'fa', 'sol', 'la', 'si']
+        let elemRandom = valeurs[Math.floor(Math.random() * valeurs.length)]
+        document.write(elemRandom + '<br />')
+      }
 
-
-function randomizeElements() { 
-    const valeurs = ["do","ré","mi","fa","sol","la","si"]; 
-    let elemRandom = valeurs[Math.floor(Math.random() * valeurs.length)]; 
-    document.write(elemRandom +'<br />'); 
-}
-
-function display(x) {
-    for(var i = 0 ; i<x; i++) {
-    setTimeout(randomizeElements, randomizeTimeOut(1000,10000))
+      function display(x){
+        for (var i = 0; i < x; i++) {
+          setTimeout(randomizeElements, randomizeTime(5000, 10000))
+      }
     }
-}
 
-display(20)
-
-
-
-
+      function setDisplay() {
+        var numberOfNotes = prompt('enter a number to display the random score')
+        while (isNaN(numberOfNotes)) {
+          numberOfNotes = prompt('enter a number to display the random score')
+        }
         
+            display(numberOfNotes)
+        
+      
+              }
 
-       
+      
 
-
-
-        </script>
-</body>
+      setDisplay()
+    </script>
+  </body>
 </html>
