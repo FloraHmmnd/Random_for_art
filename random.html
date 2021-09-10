@@ -19,28 +19,27 @@
         const valeurs = ['do', 'ré', 'mi', 'fa', 'sol', 'la', 'si']
         let elemRandom = valeurs[Math.floor(Math.random() * valeurs.length)]
         document.write(elemRandom + '<br />')
+        // sortir le document.write à la place mettre un return
+        // le document write doit attendre le set time out
       }
 
-      function display(x){
+      function display (x) {
         for (var i = 0; i < x; i++) {
           setTimeout(randomizeElements, randomizeTime(5000, 10000))
+          // la boucle doit attendre le set Time out
+        }
       }
-    }
 
-      function setDisplay() {
-        var numberOfNotes = prompt('enter a number to display the random score')
+      function setDisplay () {
+        var numberOfNotes 
         while (isNaN(numberOfNotes)) {
           numberOfNotes = prompt('enter a number to display the random score')
         }
-        
-            display(numberOfNotes)
-        
-      
-              }
+        return numberOfNotes
+      }
 
-      
+      display(setDisplay())
 
-      setDisplay()
     </script>
   </body>
 </html>
