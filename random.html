@@ -7,6 +7,20 @@
     <title>Document</title>
   </head>
   <body>
+    <div id="note"></div>
+
+    <style>
+      #note {
+        font-family: 'Times New Roman', Times, serif ;
+        font-size: 10em;
+        color: magenta;
+        text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+        text-align: center;
+        padding: 15%;
+        
+      }
+    </style>
+    
     <script>
 
       function randomizeTime (min, max) {
@@ -16,19 +30,50 @@
       }
 
       function randomizeElements () {
-        const valeurs = ['do', 'ré', 'mi', 'fa', 'sol', 'la', 'si']
+        const valeurs = ['do','do#', 'ré','ré#','réb', 'mi','mib', 'fa','fa#', 'sol','sol#','solb', 'la','la#','lab', 'si','sib']
         let elemRandom = valeurs[Math.floor(Math.random() * valeurs.length)]
-        document.write(elemRandom + '<br />')
-        // sortir le document.write à la place mettre un return
-        // le document write doit attendre le set time out
+        return elemRandom;
       }
+
+      x = 0;
+
+      function writeNotes() {
+          document.getElementById('note').innerHTML = randomizeElements();
+          //setTimeout(writeNotes, randomizeTime(5000, 10000));
+      }
+     // do 
+     // writeNotes();
+      
+
+
+     
+
+// async function display(){
+//   let myPromise = new Promise(function(myResolve, myReject) {
+//     setTimeout(function() {myResolve(writeNotes);},randomizeTime(5000,10000))
+//   })
+// }
+
+const list = [1, 2, 3, 4] // prompt
+const task = async () => {
+  for (const item of list) {
+    await new Promise(r => setTimeout(r, randomizeTime(3000,6000)));
+    console.log('Yello, D\'oh');
+    writeNotes();
+    
+  }
+}
+
+task();
+
 
       function display (x) {
         for (var i = 0; i < x; i++) {
-          setTimeout(randomizeElements, randomizeTime(5000, 10000))
+         setTimeout(writeNotes, randomizeTime(5000, 10000))
           // la boucle doit attendre le set Time out
+          
         }
-      }
+      } 
 
       function setDisplay () {
         var numberOfNotes 
@@ -36,9 +81,13 @@
           numberOfNotes = prompt('enter a number to display the random score')
         }
         return numberOfNotes
-      }
+      } 
 
-      display(setDisplay())
+      
+
+      // display(setDisplay())
+
+
 
     </script>
   </body>
