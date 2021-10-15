@@ -26,8 +26,47 @@
  </style>
 <body>
  <main>
-     <div id="note">
-     </div>
+    <div id="input_notes">
+        <label for="text">Enter a number to display some notes</label>
+        <input type="number"  id="number_of_notes" min="1">
+        <!-- <button onclick="getNumberOfNotes()">send</button> -->
+    </div>
+    <div id="input_octave">
+        <label for="text">Enter a range for octaves</label>
+        <label for="text">Minimum octave</label>
+        <input type="number"  id="min_octave" min="0">
+        <label for="text">Maximum octave</label>
+        <input type="number"  id="max_octave" max="8">
+        <button onclick="getRangeOfOctave() + getNumberOfNotes()">send</button>
+        <p id="error_octave_message"></p>
+    </div>
+
+    <script>
+//         function getRangeOfOctave(){
+//   var octaveMin = parseInt(document.getElementById("min_octave").value);
+//   var octaveMax = parseInt(document.getElementById("max_octave").value);
+//   if (octaveMin > octaveMax) {
+//  document.getElementById("error_octave_message").innerText = "Please enter a correct value, minimum octave can't be superior to maximum octave.";
+//  }
+//   else {
+//  var rangeOfOctaves = [];
+//  for (var i = octaveMin; i < octaveMax+1; i++) {
+//  rangeOfOctaves.push(i);
+//  }
+//  console.log(rangeOfOctaves)
+//  return rangeOfOctaves
+//   }
+// }
+
+// function randomizeOctave(octaves) {
+//     let randomOctave = octaves[Math.floor(Math.random() * octaves.length)]
+//   return randomOctave;
+// }
+    </script>
+
+  
+
+     <div id="note"></div>
      
 
  </main>   

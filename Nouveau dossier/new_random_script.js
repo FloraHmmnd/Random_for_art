@@ -29,19 +29,40 @@ const aHash = new Note('la#', '#FF80FD')
 const aFlat = new Note('lab', '#E673E4')
 const b = new Note('si', '#FF00FB')
 const bFlat = new Note('sib', '#FFC880')
+const silence = new Note('soupir', "FFFFFF")
 
 /// Program for a random score
 
 
 function writeNotes () {
   let note = randomizeElements();
-  document.getElementById('note').innerText = note.name;
+  document.getElementById('note').innerText = note.name + randomizeOctave(getRangeOfOctave());
   document.getElementById('note').style.color = note.color;
 }
 
-function silence() {
-  document.getElementById('note').innerText = "soupir";
-  document.getElementById('note').style.color = "white";
+// function silence() {
+//   document.getElementById('note').innerText = "soupir";
+//   document.getElementById('note').style.color = "white";
+// }
+function getRangeOfOctave(){
+  var octaveMin = parseInt(document.getElementById("min_octave").value);
+  var octaveMax = parseInt(document.getElementById("max_octave").value);
+  if (octaveMin > octaveMax) {
+ document.getElementById("error_octave_message").innerText = "Please enter a correct value, minimum octave can't be superior to maximum octave.";
+ }
+  else {
+ var rangeOfOctaves = [];
+ for (var i = octaveMin; i < octaveMax+1; i++) {
+ rangeOfOctaves.push(i);
+ }
+ console.log(rangeOfOctaves)
+ return rangeOfOctaves
+  }
+}
+
+function randomizeOctave(octaves) {
+    let randomOctave = octaves[Math.floor(Math.random() * octaves.length)]
+  return randomOctave;
 }
 
 function randomizeElements () {
@@ -75,22 +96,26 @@ function randomizeTime (min, max) {
 }
 
 
-function setDisplay () {
-  var numberOfNotes
-  while (isNaN(numberOfNotes)) {
-    numberOfNotes = prompt('enter a number to display the random score')
-  }
-  return numberOfNotes
-}
+// function setDisplay () {
+//   var numberOfNotes
+//   while (isNaN(numberOfNotes)) {
+//     numberOfNotes = prompt('enter a number to display the random score')
+//   }
+//   return numberOfNotes
+// }
+
+let count = 0;
 
 const display = async () => {
-  var count = setDisplay()
   for (let i = 0; i < count; i++) {
     await new Promise(r => setTimeout(r, randomizeTime(1000, 5000)))
     writeNotes();
-    await new Promise(r => setTimeout(r, randomizeTime(1000, 5000)))
-    silence();
   }
 }
 
-display()
+function getNumberOfNotes(){
+  var numberOfNotes = document.getElementById("number_of_notes").value;
+  console.log(numberOfNotes);
+  count = numberOfNotes;
+  display()
+}
