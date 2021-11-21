@@ -1,17 +1,34 @@
 
-
 // Class of notes
 
 class Note {
-  constructor (name, color) {
+  constructor (name, color, type) {
     this.name = name;
     this.color = color;
+    this.type = type;
   }
 }
 
+// const typeOfNote = {
+// 	bemol: "b",
+// 	diese: "#",
+// 	none: "",
+// }
 
+// création array note
 
+let notes = []
 
+for (let i=0; i< json.length; i++) {
+  let item = json[i];
+  
+ let note = new Note(item.name, item.color,item.types)  
+notes.push(note)
+}
+
+console.log(notes)
+
+///
 const c = new Note('do', '#FF0000')
 const cHash = new Note('do#', '#FF8080')
 const d = new Note('ré', '#FFFF00')
@@ -40,10 +57,17 @@ function writeNotes () {
   document.getElementById('note').style.color = note.color;
 }
 
-// function silence() {
-//   document.getElementById('note').innerText = "soupir";
-//   document.getElementById('note').style.color = "white";
-// }
+function getTempo(){
+  var tempo = parseInt(document.getElementById("choice_tempo").value);
+  tempo = tempo * 100;
+  console.log(tempo)
+  return tempo
+}
+
+
+
+
+
 function getRangeOfOctave(){
   var octaveMin = parseInt(document.getElementById("min_octave").value);
   var octaveMax = parseInt(document.getElementById("max_octave").value);
@@ -91,9 +115,11 @@ function randomizeElements () {
 
 function randomizeTime (min, max) {
   let seconds = Math.floor(Math.random() * (max - min) + min)
+  seconds = seconds / getTempo()
   console.log(seconds)
   return seconds
 }
+
 
 
 // function setDisplay () {
@@ -119,3 +145,4 @@ function getNumberOfNotes(){
   count = numberOfNotes;
   display()
 }
+

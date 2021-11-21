@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="data.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- onclick event -->
+    <button onclick="testFunction()">send</button>
+<!-- on change -->
+    <p id= "test">Modify the text in the input field, then click outside the field to fire the onchange event.</p>
+
+Enter some text: <input type="text" name="txt" value="Hello" onchange="myFunction(this.value)">
+    <script>
+
+// on click
+        function testFunction() {
+            console.log("bonjour");
+        }
+        // on change
+        function myFunction(val) {
+  document.getElementById("test").innerHTML =("The input value has changed. The new value is: " + val);
+}
+    
+    </script>
+    
+</body>
+</html>
