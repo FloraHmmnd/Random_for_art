@@ -9,44 +9,75 @@ class Note {
   }
 }
 
-// const typeOfNote = {
-// 	bemol: "b",
-// 	diese: "#",
-// 	none: "",
-// }
 
 // création array note
 
-let notes = []
+// let notes = []
 
-for (let i=0; i< json.length; i++) {
-  let item = json[i];
+// for (let i=0; i< json.length; i++) {
+//   let item = json[i];
+//   for (let j=0; j<item.length; j++){
+//     let spec = item[j]
+//     let note = new Note(item.name, item.spec.color,item.spec.types)  
+//     notes.push(note)
+//   }
   
- let note = new Note(item.name, item.color,item.types)  
-notes.push(note)
-}
+// }
 
-console.log(notes)
+// console.log(notes)
 
-///
-const c = new Note('do', '#FF0000')
-const cHash = new Note('do#', '#FF8080')
-const d = new Note('ré', '#FFFF00')
-const dHash = new Note('ré#', '#FFFF80')
-const dFlat = new Note('réb', '#E6E673')
-const e = new Note('mi', '#04FF00')
-const eFlat = new Note('mib', '#75E673')
-const f = new Note('fa', '#00FFF7')
-const fHash = new Note('fa#', '#80FFFB')
-const g = new Note('sol', '#000CFF')
-const gHash = new Note('sol#', '#8085FF')
-const gFlat = new Note('solb', '#7378E6')
-const a = new Note('la', '#FF00FB')
-const aHash = new Note('la#', '#FF80FD')
-const aFlat = new Note('lab', '#E673E4')
-const b = new Note('si', '#FF00FB')
-const bFlat = new Note('sib', '#FFC880')
-const silence = new Note('soupir', "FFFFFF")
+
+
+
+const jsonData = [
+  {
+    id: 1,
+    name: 'do',
+    types: [
+      { type: null, color: '#FF0000' },
+      { type: '#', color: '#FF808' }
+    ]
+  },
+
+  {
+    id: 2,
+    name: 'ré',
+    types: [
+      { type: null, color: '#FFFF0' },
+      { type: '#', color: '#FFFF80' },
+      { type: 'b', color: '#E6E673' }
+    ]
+  }];
+
+
+let notes = []
+let note = [];
+
+ for (let i=0; i< jsonData.length; i++) {
+ // for(let i in jsonData) {
+    let item = jsonData[i];
+ // console.log(jsonData[item]);
+ // continue;
+     for (let j=0; j<item.types.length; j++) {
+//      for (let j in item.types) {
+
+        let note = [];
+
+        let spec = item.types[j].type
+        let col = item.types[j].color
+       
+        note.push(item.name)
+        note.push(col)
+        note.push(spec)
+      
+        notes.push(note)
+
+        
+    }
+  
+  }
+  
+ console.log(notes)
 
 /// Program for a random score
 
