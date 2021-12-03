@@ -75,7 +75,7 @@ const json = [
   }
 ]
 
-
+export {json};
 // console.log(json[0].types[1].color)
 
 // const c = new Note('do', '#FF0000')
@@ -99,7 +99,7 @@ const json = [
 // const aHash = new Note('la#', '#FF80FD')
 // const aFlat = new Note('lab', '#E673E4')
 
-const b = new Note('si', '#FF00FB')
-const bFlat = new Note('sib', '#FFC880')
+// const b = new Note('si', '#FF00FB')
+// const bFlat = new Note('sib', '#FFC880')
 
-const silence = new Note('soupir', "FFFFFF")
+// const silence = new Note('soupir', "FFFFFF")

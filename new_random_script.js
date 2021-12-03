@@ -1,3 +1,4 @@
+import {json} from './data.js';
 
 // Class of notes
 
@@ -29,46 +30,43 @@ class Note {
 
 
 
-const jsonData = [
-  {
-    id: 1,
-    name: 'do',
-    types: [
-      { type: null, color: '#FF0000' },
-      { type: '#', color: '#FF808' }
-    ]
-  },
+// const jsonData = [
+//   {
+//     id: 1,
+//     name: 'do',
+//     types: [
+//       { type: null, color: '#FF0000' },
+//       { type: '#', color: '#FF808' }
+//     ]
+//   },
 
-  {
-    id: 2,
-    name: 'ré',
-    types: [
-      { type: null, color: '#FFFF0' },
-      { type: '#', color: '#FFFF80' },
-      { type: 'b', color: '#E6E673' }
-    ]
-  }];
+//   {
+//     id: 2,
+//     name: 'ré',
+//     types: [
+//       { type: null, color: '#FFFF0' },
+//       { type: '#', color: '#FFFF80' },
+//       { type: 'b', color: '#E6E673' }
+//     ]
+//   }];
 
 
 let notes = []
-let note = [];
+// let note = [];
 
- for (let i=0; i< jsonData.length; i++) {
- // for(let i in jsonData) {
-    let item = jsonData[i];
- // console.log(jsonData[item]);
- // continue;
+ for (let i=0; i< json.length; i++) {
+    let item = json[i];
      for (let j=0; j<item.types.length; j++) {
-//      for (let j in item.types) {
 
-        let note = [];
 
-        let spec = item.types[j].type
-        let col = item.types[j].color
+        let note = new Note(item.name, item.types[j].color, item.types[j].type);
+
+        // let spec = item.types[j].type
+        // let col = item.types[j].color
        
-        note.push(item.name)
-        note.push(col)
-        note.push(spec)
+        // note.push(item.name)
+        // note.push(col)
+        // note.push(spec)
       
         notes.push(note)
 
