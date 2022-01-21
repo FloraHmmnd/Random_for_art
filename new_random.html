@@ -1,60 +1,69 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="data.js"></script>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="text/javascript" src="new_random_script.js"></script>
     <title>Random for music</title>
-</head>
-<style>
-    html, body {
-    height: 100%;
-    margin : 0;
-    padding: 0;
-    background-size: cover;
-    background-color: rgb(227,217,221);
-    background: linear-gradient(185deg, rgba(227,217,221,1) 0%, rgba(212,232,255,1) 100%); 
+  </head>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-size: cover;
+      background-color: rgb(227, 217, 221);
+      background: linear-gradient(
+        185deg,
+        rgba(227, 217, 221, 1) 0%,
+        rgba(212, 232, 255, 1) 100%
+      );
     }
-     #note {
-    font-family: 'Times New Roman', Times, serif ;
-    font-size: 10em;
-    text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
-    text-align: center;
-    padding: 15%;
-        }
- </style>
-<body>
- <main>
-    <div id="input_notes">
-        
-            <label for="text">Enter a number to display some notes</label>
-            <input type="number"  id="number_of_notes" min="1">
-        
-    </div>
+    #note {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 10em;
+      text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px,
+        #000000 1px -1px;
+      text-align: center;
+      padding: 15%;
+    }
+  </style>
+  <body>
+    <main>
+      <div id="input_notes">
+        <label for="text">Enter a number to display some notes</label>
+        <input type="number" id="number_of_notes" min="1" />
+      </div>
 
-    <div id="input_octave">
-        
-            <label for="text">Enter a range for octaves</label>
-            <label for="text">Minimum octave</label>
-            <input type="number"  id="min_octave" min="0">
-            <label for="text">Maximum octave</label>
-            <input type="number"  id="max_octave" max="8">
-            <select id="choice_tempo">
-                <option value = "120">120</option>
-            </select>
-            <button onclick="getRangeOfOctave() + getNumberOfNotes() + getTempo()">send</button>
-        
+      <div id="input_octave">
+        <label for="text">Enter a range for octaves</label>
+        <label for="text">Minimum octave</label>
+        <input type="number" id="min_octave" min="0" max="8" />
+        <label for="text">Maximum octave</label>
+        <input type="number" id="max_octave" min="0" max="8" />
+        <select id="choice_tempo">
+          <option value="largo">Largo</option>
+          <option value="lento">Lento</option>
+          <option value="adagio">Adagio</option>
+          <option value="andante">Andante</option>
+          <option value="moderato">Moderato</option>
+          <option value="allegretto">Allegretto</option>
+          <option value="allegro">Allegro</option>
+          <option value="vivace">Vivace</option>
+          <option value="presto">Presto</option>
+          <option value="prestissimo">Prestissimo</option>
+          <option value="free">Free</option>
+        </select>
+        <button onclick="getRangeOfOctave() + getNumberOfNotes() + getTempo()">
+          send
+        </button>
+
         <p id="error_octave_message"></p>
-    </div>
+      </div>
 
-     <div id="note"></div>
-     
-
- </main>   
-</body>
+      <div id="note"></div>
+    </main>
+  </body>
 </html>
-

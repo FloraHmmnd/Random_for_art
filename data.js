@@ -1,5 +1,4 @@
-const json = [
-  {
+export const json = [ {
     id: 1,
     name: 'do',
     types: [
@@ -75,31 +74,5 @@ const json = [
   }
 ]
 
-export {json};
-// console.log(json[0].types[1].color)
 
-// const c = new Note('do', '#FF0000')
-// const cHash = new Note('do#', '#FF8080')
 
-// const d = new Note('ré', '#FFFF00')
-// const dHash = new Note('ré#', '#FFFF80')
-// const dFlat = new Note('réb', '#E6E673')
-
-// const e = new Note('mi', '#04FF00')
-// const eFlat = new Note('mib', '#75E673')
-
-// const f = new Note('fa', '#00FFF7')
-// const fHash = new Note('fa#', '#80FFFB')
-
-// const g = new Note('sol', '#000CFF')
-// const gHash = new Note('sol#', '#8085FF')
-// const gFlat = new Note('solb', '#7378E6')
-
-// const a = new Note('la', '#FF00FB')
-// const aHash = new Note('la#', '#FF80FD')
-// const aFlat = new Note('lab', '#E673E4')
-
-// const b = new Note('si', '#FF00FB')
-// const bFlat = new Note('sib', '#FFC880')
-
-// const silence = new Note('soupir', "FFFFFF")
