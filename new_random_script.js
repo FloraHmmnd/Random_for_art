@@ -186,10 +186,10 @@ console.log(notes)
 /// Program for a random score
 
 function getNumberOfNotes () {
-  var numberOfNotes = document.getElementById('number_of_notes').value
+  var numberOfNotes = document.getElementById('number_of_notes').value;
   console.log(numberOfNotes)
-  count = numberOfNotes
-  display()
+  count = numberOfNotes;
+  display();
 }
 
 let count = 0
@@ -198,42 +198,43 @@ const display = async () => {
   for (let i = 0; i < count; i++) {
     let tempo = getTempo().getTimeDivider()
     await new Promise(r =>
-      setTimeout(r, randomizeTime(500 / tempo, 4000 / tempo))
+      setTimeout(r, randomizeTime(1000 / tempo, 5000 / tempo))
     )
     writeNotes()
   }
 }
 
 function writeNotes () {
-  let note = randomizeElements(notes)
+  let note = randomizeElements(notes);
   console.log('note random = ' + note)
-  document.getElementById('note').innerText =
-    note.name + note.type + randomizeOctave(getRangeOfOctave())
-  document.getElementById('note').style.color = note.color
+  document.getElementById('note').innerText = note.name + " " + note.type + " " + randomizeOctave(getRangeOfOctave());
+  document.getElementById('note').style.color = note.color;
 }
 
 function randomizeElements (elem) {
-  let randomNote = elem[Math.floor(Math.random() * elem.length)]
+  let randomNote = elem[Math.floor(Math.random() * elem.length)];
 
   return randomNote
 }
 
 function randomizeTime (min, max) {
   console.log('min= ' + min + 'max=' + max)
-  let seconds = Math.floor(Math.random() * (max - min) + min)
+  let seconds = Math.floor(Math.random() * (max - min) + min);
 
   console.log('seconds=' + seconds)
   return seconds
 }
 
 function getRangeOfOctave () {
-  var octaveMin = parseInt(document.getElementById('min_octave').value)
-  var octaveMax = parseInt(document.getElementById('max_octave').value)
+  document.getElementById('errorOctaveMessage').innerText = "";
+  var octaveMin = parseInt(document.getElementById('min_octave').value);
+  var octaveMax = parseInt(document.getElementById('max_octave').value);
   if (octaveMin > octaveMax) {
-    document.getElementById('error_octave_message').innerText =
+    document.getElementById('errorOctaveMessage').innerText =
       "Please enter a correct value, minimum octave can't be superior to maximum octave."
   } else {
-    var rangeOfOctaves = []
+
+    var rangeOfOctaves = [];
     for (var i = octaveMin; i < octaveMax + 1; i++) {
       rangeOfOctaves.push(i)
     }
@@ -243,13 +244,13 @@ function getRangeOfOctave () {
 }
 
 function randomizeOctave (octaves) {
-  let randomOctave = octaves[Math.floor(Math.random() * octaves.length)]
+  let randomOctave = octaves[Math.floor(Math.random() * octaves.length)];
   return randomOctave
 }
 
 function getTempo () {
-  let tempoNameChosen = document.getElementById('choice_tempo').value
-  let tempoToPlay
+  let tempoNameChosen = document.getElementById('choice_tempo').value;
+  let tempoToPlay;
   dataTempo.forEach(tempo => {
     if (tempoNameChosen == tempo.name) {
       tempoToPlay = new Tempo(tempo.name, tempo.timeDivider)

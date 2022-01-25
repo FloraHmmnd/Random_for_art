@@ -5,64 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="text/javascript" src="new_random_script.js"></script>
+    <link href="style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
     <title>Random for music</title>
   </head>
-  <style>
-    html,
-    body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      background-size: cover;
-      background-color: rgb(227, 217, 221);
-      background: linear-gradient(
-        185deg,
-        rgba(227, 217, 221, 1) 0%,
-        rgba(212, 232, 255, 1) 100%
-      );
-    }
-    #note {
-      font-family: 'Times New Roman', Times, serif;
-      font-size: 10em;
-      text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px,
-        #000000 1px -1px;
-      text-align: center;
-      padding: 15%;
-    }
-  </style>
+
   <body>
     <main>
-      <div id="input_notes">
-        <label for="text">Enter a number to display some notes</label>
-        <input type="number" id="number_of_notes" min="1" />
+      <div id="userPreferences">
+
+        <div id="input_notes">
+          <label for="number_of_notes"
+            >Enter a number to display some notes</label
+          >
+          <input
+            type="number"
+            id="number_of_notes"
+            min="1"
+            max="100"
+            value="25"
+          />
+        </div>
+
+          <div>
+            <label for="min_octave">Select minimum octave</label>
+            <input type="number" id="min_octave" min="1" max="8" value="1" />
+          </div>
+          <div>
+            <label for="max_octave">Select maximum octave</label>
+            <input type="number" id="max_octave" min="1" max="8" value="1" />
+          </div>
+ 
+
+        <div>
+            <label for="choice_tempo">Select a tempo</label>
+            <select id="choice_tempo">
+            <option value="free">Free</option>
+            <option value="largo">Largo</option>
+            <option value="lento">Lento</option>
+            <option value="adagio">Adagio</option>
+            <option value="andante">Andante</option>
+            <option value="moderato">Moderato</option>
+            <option value="allegretto">Allegretto</option>
+            <option value="allegro">Allegro</option>
+            <option value="vivace">Vivace</option>
+            <option value="presto">Presto</option>
+            <option value="prestissimo">Prestissimo</option>
+          </select>
+        </div>
+
+        <div>
+          <button
+            onclick="getRangeOfOctave() + getNumberOfNotes() + getTempo()"
+          >GO
+          </button>
+        </div>      
       </div>
 
-      <div id="input_octave">
-        <label for="text">Enter a range for octaves</label>
-        <label for="text">Minimum octave</label>
-        <input type="number" id="min_octave" min="0" max="8" />
-        <label for="text">Maximum octave</label>
-        <input type="number" id="max_octave" min="0" max="8" />
-        <select id="choice_tempo">
-          <option value="largo">Largo</option>
-          <option value="lento">Lento</option>
-          <option value="adagio">Adagio</option>
-          <option value="andante">Andante</option>
-          <option value="moderato">Moderato</option>
-          <option value="allegretto">Allegretto</option>
-          <option value="allegro">Allegro</option>
-          <option value="vivace">Vivace</option>
-          <option value="presto">Presto</option>
-          <option value="prestissimo">Prestissimo</option>
-          <option value="free">Free</option>
-        </select>
-        <button onclick="getRangeOfOctave() + getNumberOfNotes() + getTempo()">
-          send
-        </button>
-
-        <p id="error_octave_message"></p>
-      </div>
-
+        <p id="errorOctaveMessage"></p>
+      
       <div id="note"></div>
     </main>
   </body>

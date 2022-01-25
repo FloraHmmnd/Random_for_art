@@ -1,0 +1,54 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-color: rgb(227, 217, 221);
+  background: linear-gradient(
+    185deg,
+    rgba(227, 217, 221, 1) 0%,
+    rgba(212, 232, 255, 1) 100%
+  );
+}
+
+#userPreferences {
+  display: flex;
+  margin: 5%;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 0px;
+}
+
+label {
+  margin-right: 3px;
+}
+
+#errorOctaveMessage{
+    text-align: center;
+}
+
+button{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    border: 0px;
+}
+
+#note {
+  font-family: 'Russo One', sans-serif;
+  font-size: 10em;
+  text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px,
+    #000000 1px -1px;
+  text-align: center;
+  margin-top: 15%;
+}
