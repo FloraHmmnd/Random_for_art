@@ -78,69 +78,69 @@ const dataNotes = [
 
 const dataTempo = [
   {
+    id : 1,
     name: 'largo',
-    min: 0.666,
-    max: 1
+    timeDivider: 0.833
   },
 
   {
+    id: 2,
     name: 'lento',
-    min: 0.866,
-    max: 1.133
+    timeDivider : 0.999
   },
 
   {
+    id: 3,
     name: 'adagio',
-    min: 1,
-    max: 1.333
+    timeDivider: 1.166
   },
 
   {
+    id: 4,
     name: 'andante',
-    min: 1.266,
-    max: 1.666
+    timeDivider : 1.466
   },
 
   {
+    id: 5,
     name: 'moderato',
-    min: 1.466,
-    max: 1.866
+    timeDivider: 1.666
   },
 
   {
+    id: 6,
     name: 'allegretto',
-    min: 1.266,
-    max: 2.133
+    timeDivider: 1.699
   },
 
   {
+    id: 7,
     name: 'allegro',
-    min: 1.866,
-    max: 2.666
+    timeDivider: 1.999
   },
 
   {
+    id: 8,
     name: 'vivace',
-    min: 2,
-    max: 2.333
+    timeDivider: 2.166
   },
 
   {
+    id: 9,
     name: 'presto',
-    min: 2.333,
-    max: 3.333
+    timeDivider: 2.666
   },
 
   {
+    id: 10,
     name: 'prestissimo',
-    min: 3.333,
-    max: 3.666
+    timeDivider: 3.196
   },
 
   {
+    id: 11,
     name: 'free',
-    min: 1,
-    max: 1
+    timeDivider: 1
   }
 ]
 
@@ -155,11 +155,15 @@ class Note {
 }
 
 class Tempo {
-  constructor (name, min, max) {
-    this.name = name
-    this.min = min
-    this.max = max
+  constructor (name, timeDivider) {
+    this.name = name;
+    this.timeDivider = timeDivider;
   }
+
+    getTimeDivider(){
+      return this.timeDivider
+    };
+  
 }
 
 // création array note
@@ -192,9 +196,9 @@ let count = 0
 
 const display = async () => {
   for (let i = 0; i < count; i++) {
-    let tempo = getTempo()
+    let tempo = getTempo().getTimeDivider()
     await new Promise(r =>
-      setTimeout(r, randomizeTime(1000 / tempo.min, 7000 / tempo.max))
+      setTimeout(r, randomizeTime(500 / tempo, 4000 / tempo))
     )
     writeNotes()
   }
@@ -248,7 +252,7 @@ function getTempo () {
   let tempoToPlay
   dataTempo.forEach(tempo => {
     if (tempoNameChosen == tempo.name) {
-      tempoToPlay = new Tempo(tempo.name, tempo.min, tempo.max)
+      tempoToPlay = new Tempo(tempo.name, tempo.timeDivider)
     }
   })
   return tempoToPlay
