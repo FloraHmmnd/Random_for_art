@@ -10,14 +10,18 @@ body {
     rgba(227, 217, 221, 1) 0%,
     rgba(212, 232, 255, 1) 100%
   );
+  font-family: 'Dongle', sans-serif;
+
+  
 }
 
 #userPreferences {
   display: flex;
-  margin: 5%;
-  gap: 20px;
+  padding: 5%;
+  gap: 40px;
   justify-content: center;
   align-items: center;
+  
 }
 
 input {
@@ -25,23 +29,49 @@ input {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    border: 0px;
+    border: 1px;
+    font-family: 'Dongle', sans-serif;
+  font-weight: 300;
+  font-size: 25px;
 }
 
 label {
   margin-right: 3px;
+  font-family: 'Dongle', sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+}
+
+#choice_tempo, option{
+  font-family: 'Dongle', sans-serif;
+  font-weight: 300;
+  font-size: 25px;
+  border-radius: 30px;
+  border: 0px;
+  text-align: center;
+
 }
 
 #errorOctaveMessage{
     text-align: center;
+    color:crimson;
+    font-size: 40px;
+    font-weight: 700;
+
 }
 
 button{
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     text-align: center;
     border-radius: 50%;
-    border: 0px;
+    border-width: 1px;
+    border-color: black;
+    font-family: 'Dongle', sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  background-color: greenyellow;
+  padding: 0px;
 }
 
 #note {
@@ -50,5 +80,11 @@ button{
   text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px,
     #000000 1px -1px;
   text-align: center;
-  margin-top: 15%;
+  padding-top: 2%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

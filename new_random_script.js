@@ -5,8 +5,8 @@ const dataNotes = [
     id: 1,
     name: 'do',
     types: [
-      { type: "", color: '#FF0000' },
-      { type: '#', color: '#FF808' }
+      { type: "", color: '#000000' },
+      { type: '#', color: '#ADACAC' }
     ]
   },
 
@@ -14,9 +14,9 @@ const dataNotes = [
     id: 2,
     name: 'ré',
     types: [
-      { type: "", color: '#FFFF0' },
-      { type: '#', color: '#FFFF80' },
-      { type: 'b', color: '#E6E673' }
+      { type: "", color: '#FF0000' },
+      { type: '#', color: '#FF8686' },
+      { type: 'b', color: '#8D4646' }
     ]
   },
 
@@ -24,8 +24,8 @@ const dataNotes = [
     id: 3,
     name: 'mi',
     types: [
-      { type: "", color: '#04FF00' },
-      { type: 'b', color: '#75E673' }
+      { type: "", color: '#FB00FF' },
+      { type: 'b', color: '#854486' }
     ]
   },
 
@@ -33,8 +33,8 @@ const dataNotes = [
     id: 4,
     name: 'fa',
     types: [
-      { type: "", color: '#00FFF7' },
-      { type: '#', color: '#80FFFB' }
+      { type: "", color: '#0004FF' },
+      { type: '#', color: '#888AFE' }
     ]
   },
 
@@ -42,9 +42,9 @@ const dataNotes = [
     id: 4,
     name: 'sol',
     types: [
-      { type: "", color: '#000CFF' },
-      { type: '#', color: '#8085FF' },
-      { type: 'b', color: '#7378E6' }
+      { type: "", color: '#00FFF3' },
+      { type: '#', color: '#82FFF9' },
+      { type: 'b', color: '#4A9693' }
     ]
   },
 
@@ -52,9 +52,9 @@ const dataNotes = [
     id: 5,
     name: 'la',
     types: [
-      { type: "", color: '#FF00FB' },
-      { type: '#', color: '#FF80FD' },
-      { type: 'b', color: '#E673E4' }
+      { type: "", color: '#00FF0C' },
+      { type: '#', color: '#83FF89' },
+      { type: 'b', color: '#47894A' }
     ]
   },
 
@@ -62,8 +62,8 @@ const dataNotes = [
     id: 6,
     name: 'si',
     types: [
-      { type: "", color: '#FF00FB' },
-      { type: 'b', color: '#FFC880' }
+      { type: "", color: '#FFFB00' },
+      { type: 'b', color: '#A1A04F' }
     ]
   },
 
@@ -71,7 +71,7 @@ const dataNotes = [
     id: 7,
     name: 'soupir',
     types: [
-      { type: "", color: '#030303' },
+      { type: "", color: '#FFFFFF' },
     ]
   }
 ]
@@ -207,7 +207,11 @@ const display = async () => {
 function writeNotes () {
   let note = randomizeElements(notes);
   console.log('note random = ' + note)
-  document.getElementById('note').innerText = note.name + " " + note.type + " " + randomizeOctave(getRangeOfOctave());
+  if (note.name == "soupir") {
+    document.getElementById('note').innerText = note.name;
+  } else {
+    document.getElementById('note').innerText = note.name + " " + note.type + " " + randomizeOctave(getRangeOfOctave());
+  }
   document.getElementById('note').style.color = note.color;
 }
 
@@ -231,7 +235,7 @@ function getRangeOfOctave () {
   var octaveMax = parseInt(document.getElementById('max_octave').value);
   if (octaveMin > octaveMax) {
     document.getElementById('errorOctaveMessage').innerText =
-      "Please enter a correct value, minimum octave can't be superior to maximum octave."
+      "Please enter a correct value, minimum octave can not be superior to maximum octave."
   } else {
 
     var rangeOfOctaves = [];
