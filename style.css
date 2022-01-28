@@ -11,8 +11,6 @@ body {
     rgba(212, 232, 255, 1) 100%
   );
   font-family: 'Dongle', sans-serif;
-
-  
 }
 
 #userPreferences {
@@ -21,18 +19,19 @@ body {
   gap: 40px;
   justify-content: center;
   align-items: center;
-  
 }
 
 input {
-    text-align: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 1px;
-    font-family: 'Dongle', sans-serif;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px;
+  font-family: 'Dongle', sans-serif;
   font-weight: 300;
   font-size: 25px;
+  cursor: pointer;
+
 }
 
 label {
@@ -42,36 +41,51 @@ label {
   font-size: 25px;
 }
 
-#choice_tempo, option{
+#choice_tempo,
+option {
   font-family: 'Dongle', sans-serif;
   font-weight: 300;
   font-size: 25px;
   border-radius: 30px;
   border: 0px;
   text-align: center;
+  cursor: pointer;
 
 }
 
-#errorOctaveMessage{
-    text-align: center;
-    color:crimson;
-    font-size: 40px;
-    font-weight: 700;
 
+
+#errorOctaveMessage {
+  text-align: center;
+  color: crimson;
+  font-size: 40px;
+  font-weight: 700;
 }
 
-button{
-    width: 35px;
-    height: 35px;
-    text-align: center;
-    border-radius: 50%;
-    border-width: 1px;
-    border-color: black;
-    font-family: 'Dongle', sans-serif;
+button {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  border-radius: 50%;
+  border-width: 1px;
+  border-color: black;
+  font-family: 'Dongle', sans-serif;
   font-weight: 400;
   font-size: 25px;
   background-color: greenyellow;
   padding: 0px;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color:cyan;
+  
+}
+
+button:active{
+  background-color: cyan;
+  box-shadow: 0 5px magenta;
+  transform: translateY(4px);
 }
 
 #note {
